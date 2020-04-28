@@ -1,0 +1,106 @@
+directory: /music
+library: /config/musiclibrary.db
+threaded: yes
+original_date: no
+per_disc_numbering: no
+    
+paths:
+    default: $albumartist/$album%aunique{}/$track - $title
+    singleton: Singletons/$artist - $title
+    comp: Compilations/$album%aunique{}/$track - $title
+    albumtype_soundtrack: Soundtracks/$album/$track $title 
+
+ui:
+    color: yes
+    colors:
+        text_success: green
+        text_warning: yellow
+        text_error: red
+        text_highlight: red
+        text_highlight_minor: lightgray
+        action_default: turquoise
+        action: blue
+
+match:
+    preferred:
+        countries: ['XW', 'US', 'GB|UK']
+        original_year: yes
+    strong_rec_thresh: 0.10
+    medium_rec_thresh: 0.30
+        
+import:
+    resume: ask
+  # incremental: yes
+    move: yes
+    languages: "en"
+    detail: yes
+    group_albums: yes
+    bell: yes
+    from_scratch: yes
+    write: yes
+    quiet_fallback: skip
+    timid: no
+    log: /config/beets/beet.log
+
+#musicbrainz:
+#    host: localhost:5000
+#    ratelimit: 100
+
+plugins: acousticbrainz badfiles beatport chroma convert discogs duplicates embedart fetchart fromfilename ftintitle lastgenre lyrics mbsync plexupdate replaygain scrub web
+
+acousticbrainz:
+    auto: yes
+
+chroma:
+    auto: yes
+
+convert:
+    auto: no
+    ffmpeg: /usr/bin/ffmpeg
+    opts: -ab 320k -ac 2 -ar 48000
+    max_bitrate: 320
+    threads: 1
+
+embedart:
+    auto: yes
+    remove_art_file: yes
+
+fetchart:
+    auto: yes
+    sources: coverart amazon albumart google fanarttv * filesystem
+    
+ftintitle:
+    auto: yes
+    format: feat. {0}
+
+lastgenre:
+    auto: yes
+    canonical: yes
+    count: 3
+    source: track
+
+lyrics:
+    sources: genius musixmatch lyricwiki google *
+
+
+replaygain:
+    auto: yes
+
+scrub:
+    auto: yes
+
+replace:
+    '^\.': _
+    '[\x00-\x1f]': _
+    '[<>:"\?\*\|]': _
+    '[\xE8-\xEB]': e
+    '[\xEC-\xEF]': i
+    '[\xE2-\xE6]': a
+    '[\xF2-\xF6]': o
+    '[\xF8]': o
+    '\.$': _
+    '\s+$': ''
+
+web:
+    host: 0.0.0.0
+    port: 8337

@@ -1,2 +1,2 @@
 # docker-leets
-Automatic music downloader for obsessive-compulsive geeks.
+Automatic music downloader and library management for obsessive-compulsive music geeks.
