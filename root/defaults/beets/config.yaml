@@ -1,5 +1,5 @@
 directory: /music
-library: /config/musiclibrary.db
+library: /config/beets/musiclibrary.db
 threaded: yes
 original_date: no
 per_disc_numbering: no
