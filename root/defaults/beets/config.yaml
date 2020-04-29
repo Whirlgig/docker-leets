@@ -85,6 +85,7 @@ lyrics:
 
 replaygain:
     auto: yes
+    backend: gstreamer
 
 scrub:
     auto: yes
