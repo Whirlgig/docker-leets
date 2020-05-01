@@ -112,7 +112,7 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
 ```
 ## Updating Info
 ### Via Docker Run/Create
-* Update the image: `docker pull linuxserver/leets`
+* Update the image: `docker pull whirlgig/docker-leets`
 * Stop the running container: `docker stop leets`
 * Delete the container: `docker rm leets`
 * Recreate a new container with the same docker create parameters as instructed above (if mapped correctly to a host folder, your `/config` folder and settings will be preserved)
